@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>管理员界面</title>
+    <link rel='stylesheet' href='/assets/admin/css/css.css'/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/admin/apple-touch-icon.png">
+    <link rel='stylesheet' href='/assets/admin/css/toolkit-inverse.css'/>
+    <link rel='stylesheet' href='/assets/admin/css/application.css'/>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/assets/admin/js/toolkit-entypo.woff2">
+    <link rel="stylesheet" href="/assets/admin/js/KFOlCnqEu92Fr1MmSU5fBBc4.woff2">
+    <script src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<script src="/assets/admin/js/admin.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+<style>
+    /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+    /* this chunk of css is not part of the toolkit :) */
+    body {
+        width: 1px;
+        min-width: 100%;
+        *width: 100%;
+    }
+</style>
+<body>
+<div class="bw">
+    <div class="dh">
+        <div class="en bpz">
+            <nav class="bqg">
+                <div class="bqa">
+                    <button class="bow boy bqb" type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
+                        <span class="adp">Toggle nav</span>
+                    </button>
+                    <a class="bqc brd" href="index.html">
+                        <span class="bv bhc bqd"></span>
+                    </a>
+                </div>
+
+                <div class="collapse bpd" id="nav-toggleable-md">
+                    <form class="bqe">
+                        <input class="form-control" type="text" placeholder="Search...">
+                        <button type="submit" class="nz">
+                            <span class="bv bhw"></span>
+                        </button>
+                    </form>
+                    <ul class="nav pb nav-stacked wz">
+                        <li class="axq">类别</li>
+                        <li class="pa">
+                            <a class="oy " href="/admin.php?c=admin&m=index">新闻</a>
+                        </li>
+
+
+                        <li class="axq">新闻</li>
+                        <li class="pa">
+                            <a class="oy active" href="">
+                                类别
+                            </a>
+                        </li>
+
+                    </ul>
+                    <hr class="bre aez">
+                </div>
+            </nav>
+        </div>
+        <div class="et brf">
+
+
+            <div class="bqn">
+                <div class="bqo">
+                    <h6 class="bqq">Dashboards</h6>
+                    <h2 class="bqp">今日头条</h2>
+                </div>
+
+                <div class="on bqr">
+                    <div class="axm bpy">
+                        <input type="text" value="01/01/15 - 01/08/15" class="form-control" data-provide="datepicker">
+                        <span class="bv bbc"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bop ayg">
+                <div class="boq bor">
+                    <div class="axm bpy">
+                        <input type="text" class="form-control bsx" placeholder="Search orders">
+                        <span class="bv bhw"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ly">
+                <table class="ck" data-sort="table">
+                    <thead>
+                    <tr>
+                        <th class="header"><input type="checkbox" class="bsn" id="selectAll"></th>
+                        <th class="header headerSortDown">id</th>
+                        <th class="header">标题</th>
+                        <th class="header">cid</th>
+                        <th class="header">is_default</th>
+                        <th class="header">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    <?php foreach ($rows as $k => $v) { ?>
+                    <tr data-id="<?php echo $v['id'] ?>">
+                        <td> <input type="checkbox" class="bsn"></td>
+                        <td><a href="#"><?php echo $v['id'] ?></a></td>
+                        <td><input data-type="title" id="tit" class="form-control bsx" type="text" value="<?php echo $v['title'] ?>"></td>
+                        <td><input data-type="cid" id="cid" class="form-control bsx" type="text" value="<?php echo $v['cid'] ?>"></td>
+                        <td><input data-type="is_default" id="is_default" class="form-control bsx" type="text" value="<?php echo $v['is_default'] ?>"></td>
+                        <td class="remove">
+                            <button type="button" class="ce nr">
+                                <span class="bv bei"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+                <div id="progress" style="width: 40px;height: 40px;background: none; border: 2px solid red; border-radius: 50%;margin: 0 auto;display: none;"></div>
+                <h6>共有 <?php echo 15 ?>条</h6>
+                <div class="boq">
+                    <div class="ol" id="submit">
+                        <button type="button" class="ce nr">
+                            <span class="bv bji"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="avv">
+                <nav>
+                    <ul class="qn">
+                        <li class="qp">
+                            <a class="qo" href="#" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                                <span class="adp">Previous</span>
+                            </a>
+                        </li>
+                        <li class="qp active"><a class="qo" href="#">1</a></li>
+                        <li class="qp"><a class="qo" href="#">2</a></li>
+                        <li class="qp"><a class="qo" href="#">3</a></li>
+                        <li class="qp"><a class="qo" href="#">4</a></li>
+                        <li class="qp"><a class="qo" href="#">5</a></li>
+                        <li class="qp">
+                            <a class="qo" href="#" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                                <span class="adp">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+<script src="js/application.js"></script>
+<script src="js/chart.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/tablesorter.min.js"></script>
+<script src="js/toolkit.js"></script>
+
+<script>
+    // execute/clear BS loaders for docs
+    $(function () {
+        while (window.BS && window.BS.loader && window.BS.loader.length) {
+            (window.BS.loader.pop())()
+        }
+    })
+</script>
+</html>

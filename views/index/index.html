@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,user-scalable=no,minimal-ui">
+  <title>今日头条</title>
+  <link rel="stylesheet" href="/assets/index/css/rem.css">
+  <link rel="stylesheet" href="/assets/index/css/index.css">
+  <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<!--页头-->
+<div class="header">
+  <div class="abs-l">
+    <a href="javascript:;" class="msg-box"></a>
+  </div>
+  <div class="abs-m">
+    <a href="#" class="refresh-title"></a>
+    <div class="refresh-btn">
+      <i class="btn">o</i>
+    </div>
+  </div>
+  <div class="abs-r">
+    <a href="/index.php?c=page&m=search" class="search"></a>
+  </div>
+</div>
+
+<!-- 点击 msg-box 弹出的盒子 -->
+<div class="backg">
+  <div class="popup">
+    <div class="banner"></div>
+    <p>已加载好您感兴趣的头条</p>
+    <div class="download-btn">立即打开</div>
+    <div class="close"></div>
+  </div>
+</div>
+
+<!-- 导航栏开始 -->
+<div class="menu">
+  <div class="menu-list-box">
+    <!-- 刷新页面更改内容法 -->
+    <!--<div class="menu-list">
+        <?php foreach( $fixed as $k => $v ){ ?>
+        <a href="/index.php?c=page&m=index&cid=<?php echo $v['id'] ?>&page=1" class="<?php echo $v['id'] == $cid?'btn cur':'btn' ?>" dataId="<?php echo $v['id'] ?>">
+            <?php echo $v['name'] ?>
+        </a>
+        <?php } ?>
+        <?php foreach( $default as $k => $v ){ ?>
+        <a href="/index.php?c=page&m=index&cid=<?php echo $v['id'] ?>&page=1" class="<?php echo $v['id'] == $cid?'btn cur':'btn' ?>" dataId="<?php echo $v['id'] ?>">
+            <?php echo $v['name'] ?>
+        </a>
+        <?php } ?>
+    </div>-->
+
+    <!-- 点击发送ajax更改内容法 -->
+    <div class="menu-list">
+      <?php foreach( $fixed as $k => $v ){ ?>
+      <a href="#" class="btn cur" dataId="<?php echo $v['cid'] ?>">
+        <?php echo $v['title'] ?>
+      </a>
+      <?php } ?>
+      <?php foreach(  $default as $k => $v ){ ?>
+      <a href="#" class="btn" dataId="<?php echo $v['cid'] ?>">
+        <?php echo $v['title'] ?>
+      </a>
+      <?php } ?>
+    </div>
+  </div>
+  <div class="menu-more">
+    <a href="/index.php?c=page&m=category" class="more-btn">+</a>
+  </div>
+</div>
+
+<!-- 内容开始 -->
+<div class="content">
+  <!-- 与导航对应内容 -->
+  <div class="content-list active">
+    <?php foreach( $news as $k => $v ) { ?>
+    <?php	if( $v['cid'] == 2 ){  ?>
+    <section class="has-action">
+      <a href="" class="none-img">
+        <div class="item-detail">
+          <div class="img-holder-large">
+            <h3 class="dotnot">
+              <?php echo $v['title'] ?>
+            </h3>
+            <img src="<?php echo $v['image'] ?>" alt="">
+            <div class="video-btn"></div>
+          </div>
+          <div class="item-info">
+            <span class="lable space">置顶</span>
+            <span class="src space">央视网新闻</span>
+            <span class="cmt space">
+								评论
+								<span>52</span>
+							</span>
+            <span class="time space">14分钟前</span>
+          </div>
+        </div>
+      </a>
+    </section>
+    <?php }else{ ?>
+    <section class="has-action">
+      <a href="" class="none-img">
+        <div class="item-detail desc">
+          <h3 class="dotnot">
+            <?php echo $v['title'] ?>
+          </h3>
+          <div class="item-info">
+            <span class="lable space">置顶</span>
+            <span class="src space">央视网新闻</span>
+            <span class="cmt space">
+								评论
+              <span>50</span>
+							</span>
+          </div>
+        </div>
+        <div class="img-holder-small">
+          <img src="<?php echo $v['image'] ?>" alt="">
+        </div>
+      </a>
+    </section>
+    <?php } ?>
+    <?php } ?>
+
+  </div>
+
+
+  <!-- 加载中 -->
+  <div class="content-bottom">
+    <a href="#" class="loadmoretip">加载中...</a>
+  </div>
+</div>
+</body>
+<script src="/assets/index/js/index.js"></script>
+</html>

@@ -1,0 +1,364 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+    font-size: 0.28rem;
+    color: #333;
+}
+/* 头部开始 */
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.88rem;
+    background: #d43d3d;
+    line-height: 0.88rem;
+    z-index: 999
+}
+.header .abs-l{
+    position: absolute;
+    top: 0.17rem;
+    left: 0.2rem;
+    width: 1.08rem;
+    height: 0.5rem;
+    z-index: 100;
+    color: #fff;
+    font-size: 0.28rem;
+}
+.abs-l .msg-box{
+    display: block;
+    margin-left: 0.24rem;
+    width: 0.64rem;
+    height: 0.5rem;
+    background: url('../img/mes.png') no-repeat;
+    background-size: contain;
+    position: relative;
+}
+.header .abs-m{
+    width: 2.46rem;
+    height: 100%;
+    margin: 0 auto;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.40rem;
+    display: flex;
+}
+.abs-m .refresh-title{
+    display: block;
+    width: 1.96rem;
+    height: 0.88rem;
+    padding-left: 0.3rem;
+    background: url('../img/title.png') no-repeat right center;
+    background-size: 1.66rem;
+}
+.abs-m .refresh-btn{
+    width: 0.5rem;
+    height: 100%;
+}
+.refresh-btn .btn{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: url('../img/btn.png') no-repeat center center;
+    background-size: 0.3rem;
+}
+.header .abs-r{
+    position: absolute;
+    top: 0.2rem;
+    color: #fff;
+    right: 0.2rem;
+    width: 0.72rem;
+    height: 0.48rem;
+    z-index: 100;
+    font-size: 0.28rem;
+}
+.abs-r .search{
+    display: block;
+    width: 0.48rem;
+    height: 0.48rem;
+    background: url('../img/search.png') no-repeat center;
+    background-size: contain;
+    margin-right: 0.24rem;
+}
+/* 点击 msg-box 弹出的盒子 */
+.backg{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+.backg .popup{
+    width: 5.4rem;
+    height: 4.5rem;
+    position: absolute;
+    top: 0;bottom: 0;left: 0;right: 0;
+    margin: auto;
+    background: #fff;
+}
+.popup .banner{
+    margin-top: 0.2rem;
+    margin-left: 1.08rem;
+    width: 3.30rem;
+    height: 2.42rem;
+    background: url('../img/popup-banner.png') no-repeat;
+    background-size: contain;
+}
+.popup p{
+    text-align: center;
+    color: #a5a5a5;
+    font-size: 0.34rem;
+    margin-top: 0.12rem;
+    line-height: 0.36rem;
+    margin-bottom: 0.48rem;
+}
+.popup .download-btn {
+    margin-left: 0.5rem;
+    width: 4.4rem;
+    background: #ff6762;
+    text-align: center;
+    line-height: 0.8rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.3rem;
+    border-radius: 0.1rem;
+    text-shadow: 0px 1px 1px #f0221c;
+    color: #fff;
+    font-size: 0.4rem;
+}
+.popup .close{
+    width: 0.8rem;
+    height: 0.64rem;
+    background: url('../img/close.png') no-repeat center;
+    background-size: 0.34rem;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+/* 导航栏开始 */
+.menu{
+    background: #f4f5f6;
+    height: 0.72rem;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0.88rem;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.menu .menu-list-box{
+    width: 6.7rem;
+    height: 100%;
+    overflow-x: scroll;
+}
+.menu .menu-list-box::-webkit-scrollbar{
+    display: none;
+}
+.menu-list-box .menu-list{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.menu-list .btn{
+    display: block;
+    white-space: nowrap;
+    height: 0.52rem;
+    margin: 0.1rem 0 0.1rem 0.1rem;
+    padding: 0 0.2rem;
+    color: #505050;
+    font-size: 0.34rem;
+    line-height: 0.52rem;
+    text-align: center;
+}
+.menu-list .btn.cur{
+    color: #f85959;
+}
+.menu .menu-more{
+    width: 0.8rem;
+    height: 100%;
+}
+.menu-more .more-btn{
+    display: block;
+    width: 0.8rem;
+    height: 0.72rem;
+    font-size: 0.68rem;
+    color: #f85959;
+    text-align: center;
+    line-height: 0.72rem;
+}
+
+/* 内容开始 */
+.content{
+    width: 100%;
+    padding-top: 1.6rem;
+    background: #fff;
+}
+.content .content-list{
+    width: 100%;
+    padding: 0 0.3rem;
+    display: none;
+}
+.content .content-list.active{
+    display: block;
+}
+.content-list .has-action{
+    width: 100%;
+    border-bottom: 0.01rem solid rgba(221, 221, 221, 0.6);
+}
+.has-action .none-img{
+    display: block;
+    padding: 0.32rem 0;
+    overflow: hidden;
+}
+
+.item-detail{
+
+}
+.item-detail.desc{
+    width: 67%;
+    float: left;
+}
+.item-detail .dotnot{
+    line-height: 0.42rem;
+    color: #222;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    display: box;
+    -webkit-box-orient: vertical;
+    font-weight: normal;
+}
+/* 三个图的情况 */
+.item-detail .item-image{
+    width: 100%;
+    margin-top: 0.12rem;
+}
+.item-image .list-image{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.list-image .list-image-holder{
+    overflow: hidden;
+    width: 33.3%;
+    height: 100%;
+}
+.list-image-holder img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* 一个大图的情况 */
+.img-holder-large{
+    margin-top: 0.12rem;
+    width: 100%;
+    background: url('../img/title.png') #efefef no-repeat center center;
+    background-size: 0.54rem;
+    overflow: hidden;
+    min-height: 3.75rem;
+    position: relative;
+}
+.img-holder-large h3.dotnot{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    margin: 0.1rem 0.2rem;
+    font-size: 0.28rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.img-holder-large img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.img-holder-large .video-btn{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: url('../img/video.png') no-repeat center center;
+    background-size: 1rem;
+}
+
+.item-detail .item-info{
+    color: #999;
+    overflow: hidden;
+    font-size: 0;
+    margin-top: 0.12rem;
+}
+.item-info .space{
+    display: block;
+    float: left;
+    font-size: 0.2rem;
+    line-height: 0.24rem;
+    margin-right: 0.1rem;
+}
+.item-info .lable.space{
+    color: #f85959;
+    padding: 0 0.06rem;
+    font-size: 0.18rem;
+    line-height: 0.24rem;
+    text-align: center;
+    border: 0.01rem solid rgba(248, 89, 89, 0.5);
+    border-radius: 0.04rem;
+}
+.item-info .src.space{
+
+}
+.item-info .cmt.space{
+
+}
+.item-info .time.space{
+
+}
+
+/* 一个小图在右 */
+.img-holder-small{
+    float: right;
+    overflow: hidden;
+    width: 33%;
+    height: 100%;
+    vertical-align: middle;
+}
+.img-holder-small img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* 加载中 */
+.content-bottom{
+    width: 100%;
+    height: 0.96rem;
+    text-align: center;
+    padding: 0 0.3rem;
+}
+.content-bottom a.loadmoretip{
+    font-size: 0.32rem;
+    line-height: 0.96rem;
+    color: #999;
+}
+
+

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>搜索</title>
+    <link rel="stylesheet" href="/assets/index/css/rem.css">
+    <link rel="stylesheet" href="/assets/index/css/chang.css">
+    <link rel="stylesheet" href="/assets/index/css/currency.css">
+    <link rel="stylesheet" href="/assets/index/css/search.css">
+    <link rel="stylesheet" href="/assets/index/css/index.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_791193_g2js5afd2hn.css">
+    <script src="/assets/index/js/search.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="backdrop"></div>
+<header>
+    <a href="http://localhost/index.php?c=page&m=index"><i class="iconfont icon-fanhui"></i></a>
+    <h1>搜索</h1>
+    <a href=""></a>
+</header>
+<nav>
+    <div class="Box">
+        <div class="tool">
+            <i class="iconfont icon-jinritoutiao" style="color: red;"></i>
+            <i class="iconfont icon-xiala" style="color: #cccccc;"></i>
+            <ul class="tool-list">
+                <li><i class="iconfont icon-jinritoutiao" style="color: red;"></i></li>
+                <li><i class="iconfont icon-shenmasousuo" style="color: #EAA90B;font-size: 0.6rem"></i></li>
+                <li><i class="iconfont icon-baidusousuo" style="color:cornflowerblue;"></i></li>
+            </ul>
+        </div>
+        <input type="text" placeholder="请输入关键字">
+    </div>
+</nav>
+<h3><a class="date" href="/admin.php?c=admin&m=index">管理员登</a></h3>
+<div class="more" style="margin-top: 0.3rem;">加载更多</div>
+<section>
+    <ul class="baidu" style="display: none">
+        <li><a href="">黄晓明再发声明</a></li>
+        <li><a href="">女孩自驾失控坠江</a></li>
+        <li><a href="">黄晓明再发声明</a></li>
+        <li><a href="">黄晓明再发声明</a></li>
+        <li><a href="">黄晓明再发声明</a></li>
+        <li><a href="">黄晓明再发声明</a></li>
+        <li><a href="">黄晓明再发声明</a></li>
+        <li><a href="">黄晓明再发声明</a></li>
+        <li><a href="">黄晓明再发声明</a></li>
+        <li><a href="">黄晓明再发声明</a></li>
+    </ul>
+    <ul class="redian">
+        <?php forEach ( $results  as $k=>$v) {?>
+        <li><a href="">
+            <div class="left">
+                <h3><?php echo $v['title']?></h3>
+                <div class="corner">
+                    <span class="hot">置顶</span>
+                    <span><?php echo $v['create_time']?></span>
+                    <span>评论 52</span>
+                </div>
+            </div>
+            <div class="right"><img src="<?php echo $v['image']?>" alt=""></div>
+        </a></li>
+        <?php } ?>
+    </ul>
+
+
+</section>
+<div class="action-navigation">
+    <div class="arrowup">
+        <img src="img/sanjiao.png" alt="">
+    </div>
+    <ul class="navigation-categories">
+        <li>
+            <a href="toutiao">新闻</a>
+        </li>
+        <li>
+            <a href="toutiao">神马</a>
+        </li>
+        <li>
+            <a href="toutiao">百度</a>
+        </li>
+    </ul>
+</div>
+<style>
+    a{
+        text-decoration: none;
+    }
+    .date{
+        font-size: 0.32rem;
+        color: black;
+
+    }
+    h3{
+        text-align: center;
+    }
+    .more{
+        font-size: 0.32rem;
+        text-align: center;
+    }
+</style>
+</body>
+</html>
