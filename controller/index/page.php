@@ -98,8 +98,9 @@ class page extends db
             $stmt->bindValue(1, "0");
             $stmt->bindValue(2, $_GET["id"]);
             echo $stmt->execute();
-        }elseif ( $_GET['x'] == 0 ){
+        }elseif ( $_GET['x'] == 0){
             $stmt = $this->pdo->prepare("update title set is_default = ? where id = ?");
+//            console.log(id);
             $stmt->bindValue(1, "1");
             $stmt->bindValue(2, $_GET["id"]);
             echo $stmt->execute();

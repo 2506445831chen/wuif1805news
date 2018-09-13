@@ -26,24 +26,21 @@ $(function () {
         })
     });
     $('.add-box .content').on('click', '.list', function () {
-        // $(this).appendTo('.del-box .content');
         $.ajax({
             url : '/index.php',
             data : {
                 c : 'page',
                 m : 'update',
-                id: $(this).attr('date-id'),
+                id: $(this).attr('data_id'),
                 x : 0
             },
             success : function (data) {
-                // $(this).remove();
                 if (data == 1) {
-                    // $(this).remove();
                     location.reload()
                 } else {
+                    // console.log(id)
                     alert("网络出了点问题")
                 }
-                // location.reload()
             }
         })
     })

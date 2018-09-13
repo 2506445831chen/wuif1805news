@@ -1,57 +1,44 @@
 var page=1;
 $(function () {
-    $('.more').on('click',function () {
+    $('body').on('click','.more',function () {
 
         $.ajax({
             url:'index.php?c=page&m=search&page='+(page+1),
-            date:{
-               // page:page
+            data:{
+               page:page
             },
-            success:function (date) {
+            success:function (data) {
+
                 page=page+1;
                 data=JSON.parse(data);
-                if(data.length){
-                    // date.forEach(v=>{
-                    //     if(v.cid==2){
-                    //         $('<li><a href="">${v.title}</a></li>').appendTo('.redian')
-                    //     }else{
-                    //         $('<li><a href="">${v.title}</a></li>').appendTo('.redian')
-                    //     }
-                    // })
+
+                if(data.length>(page-1)*4){
+                    data.forEach(v=>{
+
                 }else{
                     $('.more').remove();
                     $('<div id="last">到底了!</div>').appendTo("ul")
                 }
-                // location.href='index.php?c=page&m=search&page='+page;
+
             }
         })
     })
-})
-tbody.on('blur', 'input', function () {
-    let wd = $(this).val();
-    // update.php
-    $.ajax({
-        url: '/index.php?c=page&m=search',
-        data: {
-            s: wd,
-        },
-        success: function (data) {
-
-        }
-    })
-//     $(function(){
-//         $(document).keydown(function(event){
-//             if(event.keyCode==13){
-//                 $(".Box").click(function(){
-//                     var inputtext=$("input").val();
-//                     $.ajax({
-//                         url:"../controller/index/page.php",
-//                         data:{title:'inputtext'},
-//                     })
-//
-//                 });
-//         });
-
+    $('body').on('blur','input', function () {
+        let wd = $(this).val();
+        console.log(1);
+        // update.php
+        $.ajax({
+            url: '/index.php?c=page&m=search',
+            data: {
+                s: wd
+            },
+            success: function (data) {
+// console.log(1)
+//                 alert(1)
+            }
+        })
 
     });
+})
+
 
